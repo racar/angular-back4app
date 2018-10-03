@@ -1,25 +1,28 @@
-import { Component } from '@angular/core';
-// import {environment} from '../environments/environment';
+import { Component, OnInit } from '@angular/core';
+import {environment} from 'src/environments/environment';
 
 declare const Parse: any;
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class AppComponent {
-  // title = 'celestial-front';
-  // email = '';
-  // password = '';
-  // rememberMe = false;
+export class SignupComponent implements OnInit {
+  title = 'celestial-front';
+  email = '';
+  password = '';
+  rememberMe = false;
 
   constructor() {
-    // Parse.initialize(environment.PARSE_APP_ID, environment.PARSE_JS_KEY);
-    // Parse.serverURL = environment.serverURL;
+    Parse.initialize(environment.PARSE_APP_ID, environment.PARSE_JS_KEY);
+    Parse.serverURL = environment.serverURL;
+   }
+
+  ngOnInit() {
   }
 
-  /*handleSubmit = () => {
+  handleSubmit = () => {
     const user = new Parse.User();
     user.set('username', this.email);
     user.set('email', this.email);
@@ -47,5 +50,6 @@ export class AppComponent {
 
   handleRememberMeClick = () => {
       this.rememberMe = !this.rememberMe;
-  }*/
+  }
+
 }
